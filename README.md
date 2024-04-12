@@ -1,4 +1,4 @@
-# [Magic-Grid-Gallery](https://lebryere.github.io/Sziget-etterem/)
+# [Sziget étterem Taksony](https://lebryere.github.io/Sziget-etterem/)
 
 ## Browser Support
 
