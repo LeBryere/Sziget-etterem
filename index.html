@@ -1942,25 +1942,26 @@
                         <div class="pattern-image"><img src="images/icons/separator.svg" alt="" title=""></div>
                         <h2>Nézd meg a videónkat</h2>
                     </div>
-                    <div class="play-btn">
-                        <a href="./images/sziget_2.mp4" class="lightbox-image theme-btn">
-                            <span class="icon fal fa-play">
-                                <i class="ripple"></i>
-                            </span>
-                        </a>
+                    <div id="openPopupButton" class="play-btn vid-btn">
+                        <span class="icon fal fa-play">
+                            <i class="ripple ti-control_play"></i>
+                        </span>
                     </div>
-                    <div class="separator"><span></span><span></span><span></span></div>
+                    <div class="separator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                     <h3>"A főzés művészet, a receptek pedig a kreativitás legjobb kifejezői."</h3>
                     <div class="auth-title">Thomas Keller - Master chef</div>
                 </div>
-
-                <!-- <div class="fact-counter">
+                <div class="fact-counter">
                     <div class="row clearfix">
                         <div class="fact-block col-lg-3 col-md-6 col-sm-12">
                             <div class="inner clearfix">
                                 <div class="fact-count">
                                     <div class="count-box">
-                                        <span class="count-text" data-stop="150" data-speed="2000">0</span><i>+</i>
+                                        <span class="count-text" data-stop="27" data-speed="2000">0</span><i>+</i>
                                     </div>
                                 </div>
                                 <div class="fact-title">esküvő <br>party</div>
@@ -1970,7 +1971,7 @@
                             <div class="inner clearfix">
                                 <div class="fact-count">
                                     <div class="count-box">
-                                        <span class="count-text" data-stop="82" data-speed="1500">0</span><i>+</i>
+                                        <span class="count-text" data-stop="182" data-speed="1500">0</span><i>+</i>
                                     </div>
                                 </div>
                                 <div class="fact-title">Special <br>Dishes</div>
@@ -1980,7 +1981,7 @@
                             <div class="inner clearfix">
                                 <div class="fact-count">
                                     <div class="count-box">
-                                        <span class="count-text" data-stop="35" data-speed="1000">0</span><i>+</i>
+                                        <span class="count-text" data-stop="25" data-speed="1000">0</span><i>+</i>
                                     </div>
                                 </div>
                                 <div class="fact-title">expert <br>chef</div>
@@ -1990,16 +1991,30 @@
                             <div class="inner clearfix">
                                 <div class="fact-count">
                                     <div class="count-box">
-                                        <span class="count-text" data-stop="10" data-speed="1000">0</span><i>+</i>
+                                        <span class="count-text" data-stop="12" data-speed="1000">0</span><i>+</i>
                                     </div>
                                 </div>
                                 <div class="fact-title">awards <br>won</div>
                             </div>
                         </div>
                     </div>
-                </div> -->
-
+                </div>
             </div>
+            <!-- POP-UP WINDOW -->
+            <div id="videoPopup" class="video_popup">
+                <div class="controller">
+                    <div id="lebVid" class="leb__video_container">
+                        <button id="pause">Pause</button>
+                        <button id="fullscreenButton">FS</button>
+                        <button id="muteButton">Sound</button>
+                        <button id="closeButton">X</button>
+                    </div>
+                    <video id="leb__bg_vid" playsinline autoplay muted loop loading="lazy">
+                        <source src="./images/sziget_2.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
         </section>
 
         <!--Recnt Updates Section-->
@@ -2176,7 +2191,67 @@
 
     <!--Scroll to top-->
     <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-up"></span></div>
+    <script>
+        // VIDEO Popup
+        window.addEventListener('load', () => {
+            document.getElementById('leb__bg-vid').load()
+        });
 
+        /************************************************************************\
+                                  POPUP VIDEO
+    \************************************************************************/
+        const openPopupButton = document.getElementById("openPopupButton"),
+            closeButton = document.getElementById("closeButton"),
+            vid = document.getElementById("leb__bg_vid"),
+            videoPopup = document.getElementById("videoPopup"),
+            pauseButton = document.querySelector("#lebVid button"),
+            lebVid = document.getElementById("lebVid"),
+            fullscreenButton = document.getElementById("fullscreenButton"),
+            muteButton = document.getElementById("muteButton");
+
+        openPopupButton.addEventListener("click", () => {
+            videoPopup.style.display = "flex";
+            vid.paused ? vid.play() : null;
+        });
+
+        closeButton.addEventListener("click", () => {
+            videoPopup.style.display = "none";
+            vid.pause()
+        });
+
+        pauseButton.addEventListener("click", () => {
+            vid.paused ? (vid.play(), pauseButton.innerHTML = "Pause", pauseButton.style.color = "var(--design-500)") : (vid.pause(), pauseButton.innerHTML = "Play ", pauseButton.style.color = "#fff")
+        });
+
+        muteButton.addEventListener("click", () => {
+            vid.muted = !vid.muted;
+
+            if (vid.muted) {
+                muteButton.innerHTML = "Sound"
+                muteButton.style.backgroundColor = "transparent";
+                muteButton.style.color = "var(--design-500)";
+            } else {
+                muteButton.innerHTML = "Mute"
+                muteButton.style.color = "#fff";
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            (window.matchMedia("(orientation: landscape)").matches) ? lebVid.style.top = "3rem" : lebVid.style.top = "inherit";
+
+            fullscreenButton.addEventListener("click", () => {
+                vid.requestFullscreen ? vid.requestFullscreen() :
+                    vid.mozRequestFullScreen ? vid.mozRequestFullScreen() :
+                        vid.webkitRequestFullscreen ? vid.webkitRequestFullscreen() :
+                            vid.msRequestFullscreen ? vid.msRequestFullscreen() : null
+            });
+
+            window.addEventListener("orientationchange", () => {
+                window.matchMedia("(orientation: landscape)").matches ? lebVid.style.top = "auto" : lebVid.style.top = "3rem";
+            });
+        });
+
+    </script>
     <script src="js/jquery.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

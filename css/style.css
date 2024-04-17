@@ -8,6 +8,7 @@
 @import url('jquery-ui.css');
 @import url('jquery.fancybox.min.css');
 @import url('custom-animate.css');
+@import url('video.css');
 
 
 /***
@@ -3619,10 +3620,13 @@ body.visible-sidebar {
 
 .intro-section .content-box .play-btn {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 90px;
   height: 90px;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .intro-section .content-box .play-btn .theme-btn {
@@ -3654,6 +3658,7 @@ body.visible-sidebar {
   width: 90px;
   height: 90px;
   border-radius: 50%;
+  border: 2px solid var(--white-color);
   margin-top: -1px;
   margin-left: -1px;
   /* -webkit-transform: translate(-50%, -50%);
