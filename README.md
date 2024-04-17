@@ -33,7 +33,6 @@ Das Sziget Restaurant in Taksony hat sich zu einem so ikonischen Ort im Dorf und
 @import url('simple-line-icons.css');
 @import url('animate.css');
 @import url('jquery-ui.css');
-@import url('jquery.fancybox.min.css');
 @import url('custom-animate.css');
 ```
 

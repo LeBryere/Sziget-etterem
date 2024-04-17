@@ -2004,10 +2004,14 @@
             <div id="videoPopup" class="video_popup">
                 <div class="controller">
                     <div id="lebVid" class="leb__video_container">
-                        <button id="pause">Pause</button>
-                        <button id="fullscreenButton">FS</button>
-                        <button id="muteButton">Sound</button>
-                        <button id="closeButton">X</button>
+                        <button id="pause"><img src='images/icons/pause.png' alt='Pause'
+                                class='filter-color' /></button>
+                        <button id="fullscreenButton"><img src='images/icons/full-screen.png' alt='Full screen'
+                                class='filter-color' /></button>
+                        <button id="muteButton"><img src='images/icons/sound.png' alt='Sound'
+                                class='filter-color' /></button>
+                        <button id="closeButton"><img src='images/icons/close.png' alt='Close'
+                                class='filter-color' /></button>
                     </div>
                     <video id="leb__bg_vid" playsinline autoplay muted loop loading="lazy">
                         <source src="./images/sziget_2.mp4" type="video/mp4">
@@ -2196,73 +2200,18 @@
         window.addEventListener('load', () => {
             document.getElementById('leb__bg-vid').load()
         });
-
-        /************************************************************************\
-                                  POPUP VIDEO
-    \************************************************************************/
-        const openPopupButton = document.getElementById("openPopupButton"),
-            closeButton = document.getElementById("closeButton"),
-            vid = document.getElementById("leb__bg_vid"),
-            videoPopup = document.getElementById("videoPopup"),
-            pauseButton = document.querySelector("#lebVid button"),
-            lebVid = document.getElementById("lebVid"),
-            fullscreenButton = document.getElementById("fullscreenButton"),
-            muteButton = document.getElementById("muteButton");
-
-        openPopupButton.addEventListener("click", () => {
-            videoPopup.style.display = "flex";
-            vid.paused ? vid.play() : null;
-        });
-
-        closeButton.addEventListener("click", () => {
-            videoPopup.style.display = "none";
-            vid.pause()
-        });
-
-        pauseButton.addEventListener("click", () => {
-            vid.paused ? (vid.play(), pauseButton.innerHTML = "Pause", pauseButton.style.color = "var(--design-500)") : (vid.pause(), pauseButton.innerHTML = "Play ", pauseButton.style.color = "#fff")
-        });
-
-        muteButton.addEventListener("click", () => {
-            vid.muted = !vid.muted;
-
-            if (vid.muted) {
-                muteButton.innerHTML = "Sound"
-                muteButton.style.backgroundColor = "transparent";
-                muteButton.style.color = "var(--design-500)";
-            } else {
-                muteButton.innerHTML = "Mute"
-                muteButton.style.color = "#fff";
-            }
-        });
-
-        document.addEventListener("DOMContentLoaded", () => {
-            (window.matchMedia("(orientation: landscape)").matches) ? lebVid.style.top = "3rem" : lebVid.style.top = "inherit";
-
-            fullscreenButton.addEventListener("click", () => {
-                vid.requestFullscreen ? vid.requestFullscreen() :
-                    vid.mozRequestFullScreen ? vid.mozRequestFullScreen() :
-                        vid.webkitRequestFullscreen ? vid.webkitRequestFullscreen() :
-                            vid.msRequestFullscreen ? vid.msRequestFullscreen() : null
-            });
-
-            window.addEventListener("orientationchange", () => {
-                window.matchMedia("(orientation: landscape)").matches ? lebVid.style.top = "auto" : lebVid.style.top = "3rem";
-            });
-        });
-
     </script>
     <script src="js/jquery.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui.js"></script>
-    <script src="js/jquery.fancybox.js"></script>
     <script src="js/swiper.js"></script>
     <script src="js/owl.js"></script>
     <script src="js/appear.js"></script>
     <script src="js/wow.js"></script>
     <script src="js/parallax.min.js"></script>
     <script src="js/custom-script.js"></script>
+    <script src="js/videoPopUp.js"></script>
 </body>
 
 </html>
