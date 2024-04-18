@@ -416,6 +416,27 @@ if ($('.main-header').length) {
 		});
 	}
 
+	//LightBox / Fancybox
+	if ($('.lightbox-image').length) {
+		$('.lightbox-image').fancybox({
+			thumbs: {
+				autoStart: true
+			},
+			openEffect: 'fade',
+			closeEffect: 'fade',
+			helpers: {
+				media: {
+					youtube: {
+						params: {
+							autoplay: 1
+						}
+					}
+				}
+			}
+		});
+	}
+
+
 	// Scroll to a Specific Div
 	if ($('.scroll-to-target').length) {
 		$(".scroll-to-target").on('click', function () {
