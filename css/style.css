@@ -834,8 +834,8 @@ body.visible-sidebar {
 
 .hidden-bar .inner-box .logo-box {
   position: relative;
-  line-height: 50px;
-  margin-bottom: var(--margin-bottom-60);
+  /* line-height: 50px;
+  margin-bottom: var(--margin-bottom-60); */
   padding-left: var(--padding-left-30);
   padding-right: var(--padding-right-30);
   text-align: center;
