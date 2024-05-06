@@ -76,7 +76,7 @@
 
 .video_popup .controller .leb__video_container button {
    position: relative;
-   width: 4rem;
+   width: 3rem;
    color: #fff;
    background-color: transparent;
    border: none;
@@ -119,6 +119,7 @@
    }
 
    .video_popup .controller .leb__video_container button {
+      width: 2rem;
       font-size: 0.7rem;
    }
 }
