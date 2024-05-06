@@ -99,7 +99,7 @@
 }
 
 .filter-color {
-   width: 28px;
+   width: calc(.8vw + 12px);
    filter: invert(1);
 }
 

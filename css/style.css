@@ -3646,8 +3646,6 @@ body.visible-sidebar {
   border-color: var(--main-color);
 }
 
-
-
 .intro-section .content-box .play-btn .ripple,
 .intro-section .content-box .play-btn .ripple:before,
 .intro-section .content-box .play-btn .ripple:after {
