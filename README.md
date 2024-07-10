@@ -14,7 +14,7 @@
 
 ## Status
 
-[![GitHub license](https://img.shields.io/badge/licence-extended_CC_BY_NC-green%3F%26style%3Dplastic?style=plastic)](https://raw.githubusercontent.com/LeBryere/Sziget-etteremmaster/LICENCE)
+[![GitHub license](https://img.shields.io/badge/licence-extended_CC_BY_NC-green%3F%26style%3Dplastic?style=plastic)](https://raw.githubusercontent.com/LeBryere/Sziget-etterem/master/LICENCE)
 
 ## Usage
 
@@ -38,4 +38,4 @@ Das Sziget Restaurant in Taksony hat sich zu einem so ikonischen Ort im Dorf und
 
 ## Copyright and License
 
-Copyright 2024 Lebryere. Code released under the [![GitHub license](https://img.shields.io/badge/licence-extended_CC_BY_NC-green%3F%26style%3Dplastic?style=plastic)](https://raw.githubusercontent.com/LeBryere/Sziget-etteremmaster/LICENCE)
+Copyright 2024 Lebryere. Code released under the [![GitHub license](https://img.shields.io/badge/licence-extended_CC_BY_NC-green%3F%26style%3Dplastic?style=plastic)](https://raw.githubusercontent.com/LeBryere/Sziget-etterem/master/LICENCE)
